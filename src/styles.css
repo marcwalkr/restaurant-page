@@ -10,3 +10,25 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+header {
+  width: 100%;
+  background-color: #b7e4c7;
+}
+
+.header__nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style-type: none;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.header__nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 1px solid black;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1rem;
+}
