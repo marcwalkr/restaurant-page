@@ -64,12 +64,22 @@ header {
   border-radius: 0.5rem 3rem 0.5rem 3rem;
 }
 
-.card__title {
+.card__title,
+.card p {
   color: #d8f3dc;
 }
 
 .card__title--large {
   font-size: 3rem;
+}
+
+.card__title--medium {
+  font-size: 2rem;
+}
+
+.card p {
+  font-size: 1.5rem;
+  width: 55ch;
 }
 
 footer {
