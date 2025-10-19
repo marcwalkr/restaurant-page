@@ -82,6 +82,14 @@ header {
   width: 55ch;
 }
 
+.review {
+  font-style: italic;
+}
+
+.attribution {
+  font-weight: bold;
+}
+
 footer {
   flex-shrink: 0;
   width: 100%;
