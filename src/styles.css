@@ -82,6 +82,19 @@ header {
   width: 55ch;
 }
 
+.food-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.food-images img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
 .review {
   font-style: italic;
 }
