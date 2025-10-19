@@ -41,10 +41,35 @@ header {
 }
 
 #content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 60vw;  
   padding: 2rem;
   border-radius: 1rem;
   background-color: #b7e4c7;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  padding: 1rem;
+  background-color: #40916c;
+  border: 0.5rem solid #6c584c;
+  border-radius: 0.5rem 3rem 0.5rem 3rem;
+}
+
+.card__title {
+  color: #d8f3dc;
+}
+
+.card__title--large {
+  font-size: 3rem;
 }
 
 footer {
