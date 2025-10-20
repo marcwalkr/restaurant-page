@@ -54,10 +54,8 @@ header {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: max-content;
   padding: 1rem;
   background-color: #40916c;
   border: 0.5rem solid #6c584c;
