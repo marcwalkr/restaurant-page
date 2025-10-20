@@ -29,6 +29,7 @@ const createTitle = (size, text) => {
 
 const createParagraph = (text) => {
   const paragraph = document.createElement("p");
+  paragraph.classList.add("card__paragraph");
   paragraph.textContent = text;
   return paragraph;
 }

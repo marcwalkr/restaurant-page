@@ -62,8 +62,7 @@ header {
   border-radius: 0.5rem 3rem 0.5rem 3rem;
 }
 
-.card__title,
-.card p {
+.card__title {
   color: #d8f3dc;
 }
 
@@ -75,9 +74,10 @@ header {
   font-size: 2rem;
 }
 
-.card p {
+.card__paragraph {
   font-size: 1.5rem;
   max-width: 55ch;
+  color: #d8f3dc;
 }
 
 .food-images {
