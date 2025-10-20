@@ -13,7 +13,7 @@ const deselectTabs = () => {
 }
 
 navigation.addEventListener("click", (event) => {
-  const button = event.target.closest("li");
+  const button = event.target.closest("button");
   if (!button) return;
 
   deselectTabs();
