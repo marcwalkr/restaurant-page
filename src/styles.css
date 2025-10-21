@@ -105,11 +105,11 @@ header {
   border-radius: 1rem;
 }
 
-.review {
+.card__review {
   font-style: italic;
 }
 
-.attribution {
+.card__attribution {
   font-weight: bold;
 }
 
