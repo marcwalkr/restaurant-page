@@ -1,45 +1,8 @@
+import { createCard, createTitle, createParagraph, createImage } from "./domUtils.js";
+
 import lemonPancakesImage from "./images/lemon_ricotta_pancakes.png";
 import roastedChickenImage from "./images/roasted_chicken.png";
 import burgerAndFriesImage from "./images/burger_and_fries.png";
-
-const createCard = () => {
-  const section = document.createElement("section");
-  section.classList.add("card");
-  return section;
-}
-
-const createTitle = (size, text) => {
-  let heading;
-  if (size === "large") {
-    heading = document.createElement("h1");
-    heading.classList.add("card__title--large");
-  } else if (size === "medium") {
-    heading = document.createElement("h2");
-    heading.classList.add("card__title--medium");
-  } else {
-    heading = document.createElement("h3");
-    heading.classList.add("card__title--small");
-  }
-
-  heading.classList.add("card__title");
-  heading.textContent = text;
-
-  return heading;
-}
-
-const createParagraph = (text) => {
-  const paragraph = document.createElement("p");
-  paragraph.classList.add("card__paragraph");
-  paragraph.textContent = text;
-  return paragraph;
-}
-
-const createImage = (path, altText) => {
-  const img = document.createElement("img");
-  img.src = path;
-  img.alt = altText;
-  return img;
-}
 
 const createReview = (review, attribution) => {
   const container = document.createElement("div");
