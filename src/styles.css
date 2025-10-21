@@ -82,6 +82,10 @@ header {
   font-size: 2rem;
 }
 
+.card__title--small {
+  font-size: 1.5rem;
+}
+
 .card__paragraph {
   font-size: 1.5rem;
   max-width: 55ch;
