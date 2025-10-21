@@ -10,17 +10,17 @@ const menu = navigation.querySelector("#menu");
 const contact = navigation.querySelector("#contact");
 
 const selectTab = (tab) => {
-  tab.classList.add("header__nav-link--selected");
+  tab.classList.add("header__nav-tab--selected");
 }
 
 const deselectTabs = () => {
-  home.classList.remove("header__nav-link--selected");
-  menu.classList.remove("header__nav-link--selected");
-  contact.classList.remove("header__nav-link--selected");
+  home.classList.remove("header__nav-tab--selected");
+  menu.classList.remove("header__nav-tab--selected");
+  contact.classList.remove("header__nav-tab--selected");
 }
 
 const tabSelected = (tab) => {
-  return tab.classList.contains("header__nav-link--selected");
+  return tab.classList.contains("header__nav-tab--selected");
 }
 
 const clearContent = () => {

@@ -23,7 +23,7 @@ header {
   background-color: #b7e4c7;
 }
 
-.header__nav-links {
+.header__nav-tabs {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -31,7 +31,7 @@ header {
   padding: 1rem 1rem 0 1rem;
 }
 
-.header__nav-link {
+.header__nav-tab {
   font-size: 1.2rem;
   font-weight: 500;
   border: 1px solid black;
@@ -43,7 +43,7 @@ header {
   background-color: inherit;
 }
 
-.header__nav-link--selected {
+.header__nav-tab--selected {
   background-color: #40916c;
 }
 
