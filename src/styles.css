@@ -86,7 +86,8 @@ header {
   font-size: 1.5rem;
 }
 
-.card__paragraph {
+.card__paragraph,
+.card__link {
   font-size: 1.5rem;
   max-width: 55ch;
   color: #d8f3dc;
@@ -111,6 +112,13 @@ header {
 
 .card__attribution {
   font-weight: bold;
+}
+
+.card__info-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+  align-items: center;
 }
 
 footer {
