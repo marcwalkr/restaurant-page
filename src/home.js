@@ -8,10 +8,10 @@ const createReview = (review, attribution) => {
   const container = document.createElement("div");
 
   const reviewParagraph = createParagraph(review);
-  reviewParagraph.classList.add("review");
+  reviewParagraph.classList.add("card__review");
 
   const attributionParagraph = createParagraph(attribution);
-  attributionParagraph.classList.add("attribution");
+  attributionParagraph.classList.add("card__attribution");
 
   container.appendChild(reviewParagraph);
   container.appendChild(attributionParagraph);
