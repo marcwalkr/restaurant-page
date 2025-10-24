@@ -115,6 +115,36 @@ header {
   font-weight: bold;
 }
 
+.menu-item {
+  display: grid;
+  grid-template: auto auto / minmax(0, 30rem) auto;
+  grid-template-areas:
+    "name-price image"
+    "description image";
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.menu-item__name-price {
+  display: flex;
+  gap: 2rem;
+  grid-area: name-price;
+}
+
+.menu-item__description {
+  grid-area: description;
+  align-self: start;
+}
+
+.menu-item__image {
+  grid-area: image;
+  width: 100%;
+  max-width: 25rem;
+  aspect-ratio: 1.5 / 1;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
 .card__info-grid {
   display: grid;
   grid-template-columns: auto auto;
