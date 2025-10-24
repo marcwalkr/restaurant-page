@@ -1,4 +1,19 @@
-import { createCard, createTitle, createParagraph } from "./domUtils.js";
+import { createCard, createTitle, appendTitleCard, createParagraph } from "./domUtils.js";
+
+const appendAddressCard = (title, addressLine1, addressLine2, parent) => {
+  const card = createCard();
+  const titleElement = createTitle("medium", title);
+  card.appendChild(titleElement);
+
+  const addressContainer = document.createElement("div");
+  const addressParagraph1 = createParagraph(addressLine1);
+  const addressParagraph2 = createParagraph(addressLine2);
+  addressContainer.appendChild(addressParagraph1);
+  addressContainer.appendChild(addressParagraph2);
+
+  card.appendChild(addressContainer);
+  parent.appendChild(card);
+}
 
 const createLink = (url, text) => {
   const link = document.createElement("a");
@@ -14,44 +29,24 @@ const createInfoGrid = () => {
   return grid;
 }
 
-export default function loadContact() {
-  const content = document.querySelector("#content");
-
-  const titleCard = createCard();
-  const contactTitle = createTitle("large", "Let's Stay in Touch");
-  titleCard.appendChild(contactTitle);
-  content.appendChild(titleCard);
-
-  const addressCard = createCard();
-  const addressTitle = createTitle("medium", "Address");
-  addressCard.appendChild(addressTitle);
-
-  const addressContainer = document.createElement("div");
-  const addressLine1 = createParagraph("123 Willow Street");
-  const addressLine2 = createParagraph("Brookhaven, OR 97210");
-  addressContainer.appendChild(addressLine1);
-  addressContainer.appendChild(addressLine2);
-
-  addressCard.appendChild(addressContainer);
-  content.appendChild(addressCard);
-
-  const contactInfoCard = createCard();
-  const contactInfoTitle = createTitle("medium", "Contact Information");
-  contactInfoCard.appendChild(contactInfoTitle);
+const appendContactCard = (parent, title, phoneNumber, email, ...socialMedia) => {
+  const card = createCard();
+  const titleElement = createTitle("medium", title);
+  card.appendChild(titleElement);
 
   const phoneContainer = document.createElement("div");
   const phoneTitle = createTitle("small", "Phone");
-  const phoneNumber = createParagraph("(555) 867-2042");
+  const phoneNumberElement = createParagraph(phoneNumber);
   phoneContainer.appendChild(phoneTitle);
-  phoneContainer.appendChild(phoneNumber);
-  contactInfoCard.appendChild(phoneContainer);
+  phoneContainer.appendChild(phoneNumberElement);
+  card.appendChild(phoneContainer);
 
   const emailContainer = document.createElement("div");
   const emailTitle = createTitle("small", "Email");
-  const email = createParagraph("hello@willowtable.com");
+  const emailElement = createParagraph(email);
   emailContainer.appendChild(emailTitle);
-  emailContainer.appendChild(email);
-  contactInfoCard.appendChild(emailContainer);
+  emailContainer.appendChild(emailElement);
+  card.appendChild(emailContainer);
 
   const socialMediaContainer = document.createElement("div");
   const socialMediaTitle = createTitle("small", "Social Media");
@@ -59,47 +54,58 @@ export default function loadContact() {
 
   const socialMediaGrid = createInfoGrid();
 
-  const instagramParagraph = createParagraph("Instagram");
-  const instagramLink = createLink("#", "@TheWillowTable");
-  socialMediaGrid.appendChild(instagramParagraph);
-  socialMediaGrid.appendChild(instagramLink);
-
-  const facebookParagraph = createParagraph("Facebook");
-  const facebookLink = createLink("#", "The Willow Table");
-  socialMediaGrid.appendChild(facebookParagraph);
-  socialMediaGrid.appendChild(facebookLink);
-
-  const tiktokParagraph = createParagraph("TikTok");
-  const tiktokLink = createLink("#", "@WillowTableEats");
-  socialMediaGrid.appendChild(tiktokParagraph);
-  socialMediaGrid.appendChild(tiktokLink);
+  socialMedia.forEach((obj) => {
+    const platform = createParagraph(obj.platform);
+    const link = createLink("#", obj.handle);
+    socialMediaGrid.appendChild(platform);
+    socialMediaGrid.appendChild(link);
+  });
 
   socialMediaContainer.appendChild(socialMediaGrid);
 
-  contactInfoCard.appendChild(socialMediaContainer);
-  content.appendChild(contactInfoCard);
+  card.appendChild(socialMediaContainer);
+  parent.appendChild(card);
+}
 
-  const hoursCard = createCard();
-  const hoursTitle = createTitle("medium", "Hours");
-  hoursCard.appendChild(hoursTitle);
+const appendInfoGridCard = (parent, title, ...infoItems) => {
+  const card = createCard();
+  const titleElement = createTitle("medium", title);
+  card.appendChild(titleElement);
 
-  const hoursGrid = createInfoGrid();
+  const infoGrid = createInfoGrid();
 
-  const days1 = createParagraph("Mon–Thu");
-  const hours1 = createParagraph("11am – 9pm");
-  hoursGrid.appendChild(days1);
-  hoursGrid.appendChild(hours1);
+  infoItems.forEach((item) => {
+    const paragraph = createParagraph(item);
+    infoGrid.appendChild(paragraph);
+  });
 
-  const days2 = createParagraph("Fri–Sat");
-  const hours2 = createParagraph("11am – 10pm");
-  hoursGrid.appendChild(days2);
-  hoursGrid.appendChild(hours2);
+  card.appendChild(infoGrid);
+  parent.appendChild(card);
+}
 
-  const days3 = createParagraph("Sun");
-  const hours3 = createParagraph("9am – 3pm (Brunch Only)");
-  hoursGrid.appendChild(days3);
-  hoursGrid.appendChild(hours3);
+export default function loadContact() {
+  const content = document.querySelector("#content");
 
-  hoursCard.append(hoursGrid);
-  content.appendChild(hoursCard);
+  appendTitleCard("large", "Let's Stay in Touch", content);
+  appendAddressCard("Address", "123 Willow Street", "Brookhaven, OR 97210", content);
+  appendContactCard(
+    content, 
+    "Contact Information", 
+    "(555) 867-2042", 
+    "hello@willowtable.com",
+    { platform: "Instagram", handle: "@TheWillowTable" },
+    { platform: "Facebook", handle: "The Willow Table" },
+    { platform: "TikTok", handle: "@WillowTableEats" }
+  );
+
+  appendInfoGridCard(
+    content,
+    "Hours",
+    "Mon–Thu",
+    "11am – 9pm",
+    "Fri–Sat",
+    "11am – 10pm",
+    "Sun",
+    "9am – 3pm (Brunch Only)"
+  );
 }

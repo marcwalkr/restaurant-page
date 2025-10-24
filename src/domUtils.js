@@ -23,6 +23,13 @@ export function createTitle(size, text) {
   return heading;
 }
 
+export function appendTitleCard(size, title, parent) {
+  const card = createCard();
+  const titleElement = createTitle(size, title);
+  card.appendChild(titleElement);
+  parent.appendChild(card);
+}
+
 export function createParagraph(text) {
   const paragraph = document.createElement("p");
   paragraph.classList.add("card__paragraph");

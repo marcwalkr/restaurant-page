@@ -1,4 +1,4 @@
-import { createCard, createTitle, createParagraph, createImage } from "./domUtils.js";
+import { createCard, createTitle, appendTitleCard, createParagraph, createImage } from "./domUtils.js";
 
 import chickenImage from "./images/roasted_chicken.png";
 import salmonImage from "./images/salmon.png";
@@ -12,13 +12,6 @@ import lemonadeImage from "./images/lemonade.png";
 import teaImage from "./images/iced_herbal_tea.png";
 import coffeeImage from "./images/cold_brew_coffee.png";
 import waterImage from "./images/sparkling_water.png";
-
-const appendTitleCard = (size, title, parent) => {
-  const card = createCard();
-  const titleElement = createTitle(size, title);
-  card.appendChild(titleElement);
-  parent.appendChild(card);
-}
 
 const appendMenuCard = (name, price, description, imgPath, altText, parent) => {
   const card = createCard();
