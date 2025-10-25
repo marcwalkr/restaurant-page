@@ -1,5 +1,6 @@
 import { createCard, createTitle, appendTitleCard, createParagraph, createImage } from "./domUtils.js";
 
+import willowIcon from "./images/weeping-willow.png";
 import lemonPancakesImage from "./images/lemon_ricotta_pancakes.png";
 import roastedChickenImage from "./images/roasted_chicken.png";
 import burgerAndFriesImage from "./images/burger_and_fries.png";
@@ -46,7 +47,16 @@ const appendReviewCard = (title, parent, ...reviews) => {
 export default function loadHome() {
   const content = document.querySelector("#content");
 
-  appendTitleCard("large", "The Willow Table", content);
+  const topContainer = document.createElement("div");
+  topContainer.classList.add("home__top-container");
+
+  const willowImg1 = createImage(willowIcon, "Weeping willow icon");
+  const willowImg2 = createImage(willowIcon, "Weeping willow icon");
+
+  topContainer.appendChild(willowImg1);
+  appendTitleCard("large", "The Willow Table", topContainer);
+  topContainer.appendChild(willowImg2);
+  content.appendChild(topContainer);
 
   appendParagraphCard(
     "Rooted in Community",
