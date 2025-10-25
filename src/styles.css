@@ -111,13 +111,13 @@ header {
   transform: scaleX(-1);
 }
 
-.food-images {
+.home__food-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1rem;
 }
 
-.food-images img {
+.home__food-images img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;

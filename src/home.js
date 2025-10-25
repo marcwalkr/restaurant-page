@@ -16,7 +16,7 @@ const appendParagraphCard = (title, paragraph, parent) => {
 
 const appendFoodImages = (parent, ...images) => {
   const container = document.createElement("section");
-  container.classList.add("food-images");
+  container.classList.add("home__food-images");
   images.forEach((img) => container.appendChild(img));
   parent.appendChild(container);
 }
